@@ -9,7 +9,7 @@ import java.util.List;
  * the current system nano-time is automatically stored. When any of toc methods is called,
  * it returns the time differences between the previous and current time point.  
  * 
- * @author alice&lt;aliceinnets@gmail.com&gt;
+ * @author alice &lt;aliceinnets[at]gmail.com&gt;
  *
  */
 public class Stopwatch {

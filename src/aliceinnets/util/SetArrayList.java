@@ -10,7 +10,7 @@ import java.util.HashSet;
  * which is the <tt>HashSet<tt> class {@link HashSet}, in order to
  * prevent adding duplicate elements.
  * 
- * @author alice&lt;aliceinnets@gmail.com&gt;
+ * @author alice &lt;aliceinnets[at]gmail.com&gt;
  * 
  */
 public class SetArrayList<E> extends ArrayList<E> {

@@ -9,7 +9,98 @@ import java.util.Scanner;
 
 public class OneLiners {
 	
-	public static Class<?> getElementType(Class<?> type) {
+	public final static void println(boolean[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+
+	public final static void println(byte[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(char[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(double[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(float[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(int[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(long[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(Object[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(short[][] a) {
+		for (int i = 0; i < a.length; i++) {
+			System.out.println(Arrays.toString(a[i]));
+		}
+	}
+	
+	public final static void println(boolean[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(byte[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(char[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(double[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(float[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(int[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(long[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(Object[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	public final static void println(short[] a) {
+		System.out.println(Arrays.toString(a));
+	}
+	
+	
+	public final static Class<?> getElementType(Class<?> type) {
 		if(type.getComponentType() == null) {
 			return type;
 		} else {
@@ -30,15 +121,6 @@ public class OneLiners {
 	
 	public final static String getAbsoluteDir(Class<?> clazz) {
 		return clazz.getResource(clazz.getName()+".java").getPath().replace(clazz.getSimpleName()+".java", "");
-	}
-	
-	
-	public final static void println(Object object) {
-		if(object.getClass().isArray()) {
-			System.out.println(Arrays.toString((Object[]) object));
-		} else {
-			System.out.println(object);
-		}
 	}
 	
 	
@@ -81,7 +163,7 @@ public class OneLiners {
 		return dOut;
 	}
 	
-	public static double[][] meshGrid(double[]... values) {
+	public final static double[][] meshGrid(double[]... values) {
 		if(values.length == 1) {
 			return transpose(values);
 		} else {

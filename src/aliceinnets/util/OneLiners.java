@@ -292,20 +292,19 @@ public class OneLiners {
 		int count = 0;
 		
 		if(!caseSensitive) document = document.toLowerCase();
-		if(excludeNonWordChars) word = word.replaceAll("\\W", "");
 		
 		String[] words = document.split("\\s+");
 		if(wholeWord) {
 			if(excludeNonWordChars) {
-				for(int i=0;i<words.length;++i) if(words[i].equals(word)) ++count;
-			} else {
 				for(int i=0;i<words.length;++i) if(words[i].replaceAll("\\W", "").equals(word)) ++count;
+			} else {
+				for(int i=0;i<words.length;++i) if(words[i].equals(word)) ++count;
 			}
 		} else {
 			if(excludeNonWordChars) {
-				for(int i=0;i<words.length;++i) if(words[i].contains(word)) ++count;
-			} else {
 				for(int i=0;i<words.length;++i) if(words[i].replaceAll("\\W", "").contains(word)) ++count;
+			} else {
+				for(int i=0;i<words.length;++i) if(words[i].contains(word)) ++count;
 			}
 			
 		}

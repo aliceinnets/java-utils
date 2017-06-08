@@ -1,6 +1,9 @@
 package aliceinnets.util;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -8,6 +11,32 @@ import java.util.List;
 import java.util.Scanner;
 
 public class OneLiners {
+	
+	public final static String[] exec(String command) {
+		try {
+			Process process = Runtime.getRuntime().exec(command);
+			String input = "";
+			String buffer = null;
+			BufferedReader inputStreamReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			while ((buffer = inputStreamReader.readLine()) != null) {
+				input += buffer;
+			}
+			inputStreamReader.close(); 
+			
+			String error = "";
+			BufferedReader errorStreamReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+			while ((buffer = errorStreamReader.readLine()) != null) {
+				error += buffer;
+			}
+			errorStreamReader.close();
+			
+			process.destroy();
+			return new String[] { input, error };
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 	public final static void println(boolean[][] a) {
 		for (int i = 0; i < a.length; i++) {
@@ -124,21 +153,34 @@ public class OneLiners {
 	}
 	
 	
-	public final static String read(String pathname) throws FileNotFoundException {
-		Scanner scanner = new Scanner(new File(pathname));
-		scanner.useDelimiter("\\Z");
+	public final static String read(String pathname) {
+		try {
+			Scanner scanner = new Scanner(new File(pathname));
+			scanner.useDelimiter("\\Z");
+			
+			String s = scanner.next();
+			scanner.close();
+			
+			return s;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
 		
-		String s = scanner.next();
-		scanner.close();
-		
-		return s;
 	}
 	
 	
-	public final static void write(String s, String pathname) throws FileNotFoundException {
-		PrintWriter out = new PrintWriter(new File(pathname));
-		out.write(s);
-		out.close();
+	public final static boolean write(String s, String pathname) {
+		try {
+			PrintWriter out = new PrintWriter(new File(pathname));
+			
+			out.write(s);
+			out.close();
+			return true;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	public final static double[] linspace(double x0, double x1, int n){

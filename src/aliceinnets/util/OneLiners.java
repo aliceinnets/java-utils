@@ -142,12 +142,25 @@ public class OneLiners {
 	}
 	
 	
-	public final static void mkdirs(String path) {
+	public final static void rmdirs(String path) {
+		File dir = new File(path);
+		if(dir.exists()) {
+			if(dir.isDirectory()) {
+				for (String subpath : dir.list()) {
+					rmdirs(path+File.separator+subpath);
+				}
+			}
+			dir.delete();
+		}
+	}
+	
+	
+	public final static boolean mkdirs(String path) {
 		File dir = new File(path);
 		if(dir.exists() && !dir.isDirectory()) {
 			throw new RuntimeException(String.format("A file is exist already at %s", path));
 		} else {
-			dir.mkdirs();
+			return dir.mkdirs();
 		}
 	}
 	

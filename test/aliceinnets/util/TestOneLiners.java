@@ -1,12 +1,32 @@
 package aliceinnets.util;
+import java.io.File;
+
 import aliceinnets.util.OneLiners;
 import aliceinnets.util.Stopwatch;
 import junit.framework.TestCase;
 
 public class TestOneLiners extends TestCase {
 	
+	public void testDir() {
+		String folder = System.getProperty("user.home")+File.separator+"ABCDEFolder"+File.separator;
+		String subfolder = folder+"subfolder"+File.separator;
+		String pathname = subfolder+"hello.txt";
+		String contents = "hello, world";
+		
+		OneLiners.mkdirs(subfolder);
+		if(!new File(subfolder).exists()) TestCase.fail();
+		
+		OneLiners.write(contents, pathname);
+		if(!new File(pathname).exists()) TestCase.fail();
+		
+		TestCase.assertEquals(OneLiners.read(pathname), contents);
+		
+		OneLiners.rmdirs(folder);
+		if(new File(pathname).exists() || new File(subfolder).exists() || new File(folder).exists()) TestCase.fail();
+	}
+	
 	public void testExec() {
-		System.out.println(OneLiners.exec("which python"));
+		System.out.println(OneLiners.exec("which python")[0]);
 		System.out.println(SystemProperty.OsName.MacOS);
 	}
 	

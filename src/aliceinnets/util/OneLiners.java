@@ -2,9 +2,13 @@ package aliceinnets.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -153,34 +157,53 @@ public class OneLiners {
 	}
 	
 	
-	public final static String read(String pathname) {
+	public final static String read(Reader in) {
+		Scanner scanner = new Scanner(in);
+		scanner.useDelimiter("\\Z");
+		
+		String s = scanner.next();
+		scanner.close();
+		
+		return s;
+	}
+	
+	
+	public final static String read(File file) {
 		try {
-			Scanner scanner = new Scanner(new File(pathname));
-			scanner.useDelimiter("\\Z");
-			
-			String s = scanner.next();
-			scanner.close();
-			
-			return s;
+			return read(new FileReader(file));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	
+	public final static String read(String pathname) {
+		return read(new File(pathname));
+	}
+	
+	
+	public final static void write(String s, Writer writer) {
+		PrintWriter out = new PrintWriter(writer);
 		
+		out.write(s);
+		out.close();
+	}
+	
+	
+	public final static boolean write(String s, File file) {
+		try {
+			write(s, new FileWriter(file));
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	
 	public final static boolean write(String s, String pathname) {
-		try {
-			PrintWriter out = new PrintWriter(new File(pathname));
-			
-			out.write(s);
-			out.close();
-			return true;
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			return false;
-		}
+		return write(s, new File(pathname));
 	}
 	
 	public final static double[] linspace(double x0, double x1, int n){

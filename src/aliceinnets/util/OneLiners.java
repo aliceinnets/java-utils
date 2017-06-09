@@ -168,18 +168,28 @@ public class OneLiners {
 	}
 	
 	
-	public final static String read(File file) {
+	public final static String read(File file, boolean printStackTrace) {
 		try {
 			return read(new FileReader(file));
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			if(printStackTrace) e.printStackTrace();
 			return null;
 		}
 	}
 	
 	
+	public final static String read(File file) {
+		return read(file, false);
+	}
+	
+	
+	public final static String read(String pathname, boolean printStackTrace) {
+		return read(new File(pathname), printStackTrace);
+	}
+	
+	
 	public final static String read(String pathname) {
-		return read(new File(pathname));
+		return read(new File(pathname), false);
 	}
 	
 	
@@ -191,27 +201,38 @@ public class OneLiners {
 	}
 	
 	
-	public final static boolean write(String s, File file) {
+	public final static boolean write(String s, File file, boolean printStackTrace) {
 		try {
 			write(s, new FileWriter(file));
 			return true;
 		} catch (IOException e) {
-			e.printStackTrace();
+			if(printStackTrace) e.printStackTrace();
 			return false;
 		}
 	}
 	
 	
-	public final static boolean write(String s, String pathname) {
-		return write(s, new File(pathname));
+	public final static boolean write(String s, File file) {
+		return write(s, file, false);
 	}
+	
+	
+	public final static boolean write(String s, String pathname, boolean printStackTrace) {
+		return write(s, new File(pathname), printStackTrace);
+	}
+	
+	
+	public final static boolean write(String s, String pathname) {
+		return write(s, new File(pathname), false);
+	}
+	
 	
 	public final static double[] linspace(double x0, double x1, int n){
 		if(n == 1) return new double[]{ (x0+x1)/2 };
         double f[] = new double[n];
-        double dx = (x1 - x0)/(double)(n - 1.0);
+        double dx = (x1 - x0)/(n - 1.0);
         for(int i=0; i<n; i++)
-            f[i] = x0 + i*dx;
+        	f[i] = x0 + i*dx;
         return f;
 	}
 	

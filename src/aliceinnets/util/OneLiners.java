@@ -19,24 +19,25 @@ public class OneLiners {
 	public final static String[] exec(String command) {
 		try {
 			Process process = Runtime.getRuntime().exec(command);
+			process.waitFor();
 			String input = "";
 			String buffer = null;
 			BufferedReader inputStreamReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 			while ((buffer = inputStreamReader.readLine()) != null) {
-				input += buffer;
+				input += buffer+"\n";
 			}
 			inputStreamReader.close(); 
 			
 			String error = "";
 			BufferedReader errorStreamReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 			while ((buffer = errorStreamReader.readLine()) != null) {
-				error += buffer;
+				error += buffer+"\n";
 			}
 			errorStreamReader.close();
 			
 			process.destroy();
 			return new String[] { input, error };
-		} catch (IOException e) {
+		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 			return null;
 		}

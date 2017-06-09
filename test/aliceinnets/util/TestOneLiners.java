@@ -26,8 +26,10 @@ public class TestOneLiners extends TestCase {
 	}
 	
 	public void testExec() {
-		System.out.println(OneLiners.exec("which python")[0]);
-		System.out.println(SystemProperty.OsName.MacOS);
+		System.out.println(System.getenv());
+		System.out.println(OneLiners.exec("cmd.exe /c dir")[0]);
+//		System.out.println(OneLiners.exec("which python")[0]);
+//		System.out.println(SystemProperty.OsName.MacOS);
 	}
 	
 	public void testCountWord() {

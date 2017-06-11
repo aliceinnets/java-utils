@@ -299,7 +299,7 @@ public class OneLiners {
 	
 	public final static Object castToPrimitiveType(Object object, Class<?> type) {
 		if(!type.isArray()) {
-			if(type.equals(double.class)) {
+			if(type.equals(double.class) || type.equals(Double.class)) {
 				return Double.parseDouble(object.toString());
 			} else if(type.equals(float.class)) {
 				return Float.parseFloat(object.toString());

@@ -2,6 +2,7 @@ package aliceinnets.util;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -134,15 +136,6 @@ public class OneLiners {
 	}
 	
 	
-	public final static Class<?> getElementType(Class<?> type) {
-		if(type.getComponentType() == null) {
-			return type;
-		} else {
-			return getElementType(type.getComponentType());
-		}
-	}
-	
-	
 	public final static void rmdirs(String path) {
 		File dir = new File(path);
 		if(dir.exists()) {
@@ -163,6 +156,323 @@ public class OneLiners {
 		} else {
 			return dir.mkdirs();
 		}
+	}
+	
+	
+	public final static String[] getFileNames(String dir) {
+		File[] directories = getFiles(dir);
+		String[] name = new String[directories.length];
+		for (int i = 0; i < name.length; i++) {
+			name[i] = directories[i].getName();
+		}
+		
+		return name;
+	}
+	
+	
+	public final static String[] getFilePaths(String dir) {
+		File[] directories = getFiles(dir);
+		String[] name = new String[directories.length];
+		for (int i = 0; i < name.length; i++) {
+			name[i] = directories[i].getPath()+"/";
+		}
+		
+		return name;
+	}
+	
+	
+	public final static File[] getFiles(String dir) {
+		return new File(dir).listFiles(File::isFile);
+	}
+	
+	
+	public final static String[] getSubdirNames(String dir) {
+		File[] directories = getSubdirs(dir);
+		String[] name = new String[directories.length];
+		for (int i = 0; i < name.length; i++) {
+			name[i] = directories[i].getName();
+		}
+		
+		return name;
+	}
+	
+	
+	public final static String[] getSubdirPaths(String dir) {
+		File[] directories = getSubdirs(dir);
+		String[] name = new String[directories.length];
+		for (int i = 0; i < name.length; i++) {
+			name[i] = directories[i].getPath();
+		}
+		
+		return name;
+	}
+	
+	
+	public final static File[] getSubdirs(String dir) {
+		return new File(dir).listFiles(File::isDirectory);
+	}
+	
+	/**
+	 * Extracts the elements in an array based on a boolean array indicating
+	 * which elements should be kept.
+	 * 
+	 * @param array The array to extract elements from.
+	 * @param keep if keep[i] == true, the ith elements is kept.
+	 * @return A new array with only the chosen elements.
+	 */
+	public final static Object extractElems(Object array, boolean[] keep) {
+		List<Object> ret = new LinkedList<Object>();
+		for (int i = 0; i < Array.getLength(array); i++) {
+			if(keep[i]) ret.add(Array.get(array, i));
+		}
+		
+		Class<?> type = getElementType(array.getClass());
+		try {
+			return castToPrimitiveTypeArray(ret.toArray(), type);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	/**
+	 * Extracts a range of elements (fromIndex:step:toIndex) in an array.
+	 * 
+	 * @param array The array to extract elements from.
+	 * @param fromIndex First index in a to keep.
+	 * @param step The step in the sequence of values to be kept
+	 * @param toIndex Last index in a to keep.
+	 * @return A new array containing the elements with original indices fromIndex:step:toIndex 
+	 * 
+	 */
+	public final static Object extractElems(Object array, int fromIndex, int step, int toIndex) {
+		boolean[] keep = new boolean[Array.getLength(array)];
+		for(int i=fromIndex;i<=toIndex;i+=step) {
+			keep[i] = true;
+		}
+
+		return extractElems(array, keep);
+	}
+
+	/**
+	 * Extracts the elements in an array based on an integer array of indices that should be kept.
+	 * 
+	 * @param array The array to extract elements from.
+	 * @param keepIndicies An array with the indices of the elements of the array a that should
+	 * be kept.
+	 * @return A new array with only the chosen elements.
+	 */
+	public final static Object extractElems(Object array, int[] keepIndicies) {
+		boolean[] keep = new boolean[keepIndicies.length];
+		for (int i = 0; i < keep.length; i++) {
+			keep[keepIndicies[i]] = true;
+		}
+
+		return extractElems(array, keep);	
+	}
+	
+	
+	/**
+	 * Clone the non-structured object, so handles primitives, 
+	 * object type primitives (e.g. Long), Strings, and arbitrary multidimensional arrays of those types. 
+	 * 
+	 * @param object non-structured object
+	 * @return clone
+	 */
+	public final static Object cloneNonStructuredObject(Object object) {
+		if(!object.getClass().isArray()) {
+			return object;
+		} else {
+			Object ret = Array.newInstance(object.getClass().getComponentType(), Array.getLength(object));
+			for(int i=0;i<Array.getLength(object);++i) {
+				Array.set(ret, i, cloneNonStructuredObject(Array.get(object, i)));
+			}
+			return ret;
+		}
+	}
+	
+	
+	public final static Object castToPrimitiveTypeArray(Object object, Class<?> componentType) throws ClassNotFoundException {
+		return castToPrimitiveType(object, getArrayType(componentType, getArrayDimensions(object.getClass())));
+	}
+	
+	
+	public final static Object castToPrimitiveType(Object object, Class<?> type) {
+		if(!type.isArray()) {
+			if(type.equals(double.class)) {
+				return Double.parseDouble(object.toString());
+			} else if(type.equals(float.class)) {
+				return Float.parseFloat(object.toString());
+			} else if(type.equals(long.class)) {
+				return Long.parseLong(object.toString().split("\\.")[0]);
+			} else if(type.equals(int.class)) {
+				return Integer.parseInt(object.toString().split("\\.")[0]);
+			} else if(type.equals(short.class)) {
+				return Short.parseShort(object.toString().split("\\.")[0]);
+			} else if(type.equals(byte.class)) {
+				return Byte.parseByte(object.toString().split("\\.")[0]);
+			} else if(type.equals(boolean.class)) {
+				return Boolean.parseBoolean(object.toString());
+			} else if(type.equals(char.class)) {
+				return object.toString().charAt(0);
+			} else if(type.equals(String.class)) {
+				return object.toString();
+			} else {
+				throw new RuntimeException(String.format("type to cast(%s) is neither primitive nor string", type));
+			}
+		} else {
+			Object ret = Array.newInstance(type.getComponentType(), Array.getLength(object));
+			for(int i=0;i<Array.getLength(object);++i) {
+				Array.set(ret, i, castToPrimitiveType(Array.get(object, i), type.getComponentType()));
+			}
+			return ret;
+		}
+		
+	}
+	
+	
+	public final static int getArrayDimensions(Class<?> type) {
+		if(type.getComponentType() == null) {
+			return 0;
+		} else {
+			return getArrayDimensions(type.getComponentType()) + 1;
+		}
+	}
+	
+	
+	public final static Class<?> getElementType(Class<?> type) {
+		if(type.getComponentType() == null) {
+			return type;
+		} else {
+			return getElementType(type.getComponentType());
+		}
+	}
+	
+	
+	public final static Class<?> getArrayType(Class<?> elementType, int dimension) throws ClassNotFoundException {
+		if (dimension == 0) {
+			return elementType;
+		}
+		
+		String className = elementType.getName();
+		if(className.equals("byte")) { className = "B"; }
+		else if(className.equals("char")) { className = "C"; }
+		else if(className.equals("double")) { className = "D"; }
+		else if(className.equals("float")) { className = "F"; }
+		else if(className.equals("int")) { className = "I"; }
+		else if(className.equals("long")) { className = "J"; }
+		else if(className.equals("short")) { className = "S"; }
+		else if(className.equals("boolean")) { className = "Z"; }
+		else { className = "L" + className + ";";}
+	
+		for (int i = 0; i < dimension; i++) {
+			className = "[" + className;
+		}
+	
+		return Class.forName(className);
+	}
+	
+	
+	public final static void setArrayElement(Object array, Object element, int... indices) {
+		if(indices.length == 1) {
+			Array.set(array, indices[0], element);
+		} else {
+			int[] subindices = new int[indices.length-1];
+			for(int i=0;i<subindices.length;++i) {
+				subindices[i] = indices[i+1];
+			}
+			
+			Object subarray = Array.get(array, indices[0]);
+			setArrayElement(subarray, element, subindices);
+		}
+	}
+	
+	
+	public final static void setArrayElements(Object array, Object[] elements, int[][] indices) {
+		if(elements.length != indices.length) {
+			throw new RuntimeException(String.format("the dimensions should be same, elements (%s), indices (%s)", elements.length, indices.length));
+		}
+		for(int i=0;i<elements.length;++i) {
+			setArrayElement(array, elements[i], indices[i]);
+		}
+	}
+	
+	
+	public final static void TextToFile(String fileName, String[] text) {
+		OneLiners.mkdirs(fileName);
+		
+		try{
+			FileOutputStream fOut = new FileOutputStream(fileName);
+			fOut.write(String.join("\n", text).getBytes());
+			fOut.close();
+		}catch(IOException err){
+			throw new RuntimeException(err);
+		}
+		
+	}
+	
+	
+	public final static int[][] meshGrid(int[]... values) {
+		if(values.length == 1) {
+			return transpose(values);
+		} else {
+			int[][] subvalues = new int[values.length-1][];
+			for(int i=0;i<subvalues.length;++i) {
+				subvalues[i] = values[i+1];
+			}
+			int[][] subgrid = meshGrid(subvalues);
+			
+			List<int[]> ret = new LinkedList<int[]>();
+			for(int i=0;i<values[0].length;++i) {
+				for(int j=0;j<subgrid.length;++j) {
+					int[] array = new int[subgrid[0].length+1];
+					array[0] = values[0][i];
+					for(int k=0;k<subgrid[0].length;++k) {
+						array[k+1] = subgrid[j][k];
+					}
+					ret.add(array);
+				}
+			}
+			return ret.toArray(new int[ret.size()][]);
+		}
+		
+	}
+	
+	
+	public final static int[][] transpose(int dIn[][]){
+		int i,j,ni,nj;
+		ni = dIn.length;
+		if(ni <= 0) return new int[0][0];
+		nj = dIn[0].length;
+		int dOut[][] = new int[nj][ni];
+		for(i=0;i<ni;i++)
+			for(j=0;j<nj;j++)
+				dOut[j][i]=dIn[i][j];
+		
+		return dOut;
+	}
+	
+	
+	public final static int[] linspaceInt(int x0, int x1, int dx) {
+		int n = (int)((x1 - x0)/dx + 1.0);		
+		int f[] = new int[n];
+		for(int i=0; i<n; i++) {
+			f[i] = x0 + i*dx;
+		}
+
+		return f;
+	}
+	
+	
+	public final static long[] linspaceLong(long x0, long x1, long dx) {
+		int n = (int) ((x1 - x0)/dx + 1.0);
+		
+		long f[] = new long[n];
+		for(int i=0; i<n; i++) {
+			f[i] = x0 + i*dx;
+		}
+
+		return f;
 	}
 	
 	

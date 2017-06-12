@@ -1,8 +1,9 @@
+/* Automatically generated java class, generated at 38199651635118 */
 package aliceinnets.util;
 
 
 
-public class SingleCast {	
+public class UtilBase {	
 	public final static double toDouble(float a) {
 		return (double) a;
 	}

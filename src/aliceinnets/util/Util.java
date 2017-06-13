@@ -1,10 +1,150 @@
-/* Automatically generated java class, generated at 38199651635118 */
+/* Automatically generated java class, generated at Tue Jun 13 20:50:41 BST 2017 */
 package aliceinnets.util;
 
 import java.util.Arrays;
 
 
 public class Util {	
+	public final static float[][] toFloat(int[][] a) {
+		float[][] ret = new float[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
+		return ret;
+	}
+
+	public final static float[] toFloat(int[] a) {
+		float[] ret = new float[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
+		return ret;
+	}
+
+	public final static float toFloat(int a) {
+		return aliceinnets.util.UtilBase.toFloat(a);
+	}
+
+	
+	public final static float[][] toFloat(long[][] a) {
+		float[][] ret = new float[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
+		return ret;
+	}
+
+	public final static float[] toFloat(long[] a) {
+		float[] ret = new float[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
+		return ret;
+	}
+
+	public final static float toFloat(long a) {
+		return aliceinnets.util.UtilBase.toFloat(a);
+	}
+
+	
+	public final static float[][] toFloat(double[][] a) {
+		float[][] ret = new float[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
+		return ret;
+	}
+
+	public final static float[] toFloat(double[] a) {
+		float[] ret = new float[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
+		return ret;
+	}
+
+	public final static float toFloat(double a) {
+		return aliceinnets.util.UtilBase.toFloat(a);
+	}
+
+	
+	public final static float[][] toFloat(short[][] a) {
+		float[][] ret = new float[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
+		return ret;
+	}
+
+	public final static float[] toFloat(short[] a) {
+		float[] ret = new float[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
+		return ret;
+	}
+
+	public final static float toFloat(short a) {
+		return aliceinnets.util.UtilBase.toFloat(a);
+	}
+
+	
+	public final static float[][] toFloat(byte[][] a) {
+		float[][] ret = new float[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
+		return ret;
+	}
+
+	public final static float[] toFloat(byte[] a) {
+		float[] ret = new float[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
+		return ret;
+	}
+
+	public final static float toFloat(byte a) {
+		return aliceinnets.util.UtilBase.toFloat(a);
+	}
+
+	
+	public final static double[][] toDouble(float[][] a) {
+		double[][] ret = new double[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.util.UtilBase.toDouble(a[i][j]);
+		return ret;
+	}
+
+	public final static double[] toDouble(float[] a) {
+		double[] ret = new double[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.util.UtilBase.toDouble(a[i]);
+		return ret;
+	}
+
+	public final static double toDouble(float a) {
+		return aliceinnets.util.UtilBase.toDouble(a);
+	}
+
+	
+	public final static double[][] toDouble(long[][] a) {
+		double[][] ret = new double[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.util.UtilBase.toDouble(a[i][j]);
+		return ret;
+	}
+
+	public final static double[] toDouble(long[] a) {
+		double[] ret = new double[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.util.UtilBase.toDouble(a[i]);
+		return ret;
+	}
+
+	public final static double toDouble(long a) {
+		return aliceinnets.util.UtilBase.toDouble(a);
+	}
+
+	
 	public final static double[][] toDouble(int[][] a) {
 		double[][] ret = new double[a.length][a[0].length];
 		for(int i=0;i<ret.length;++i)
@@ -62,146 +202,6 @@ public class Util {
 
 	public final static double toDouble(byte a) {
 		return aliceinnets.util.UtilBase.toDouble(a);
-	}
-
-	
-	public final static double[][] toDouble(long[][] a) {
-		double[][] ret = new double[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.util.UtilBase.toDouble(a[i][j]);
-		return ret;
-	}
-
-	public final static double[] toDouble(long[] a) {
-		double[] ret = new double[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.util.UtilBase.toDouble(a[i]);
-		return ret;
-	}
-
-	public final static double toDouble(long a) {
-		return aliceinnets.util.UtilBase.toDouble(a);
-	}
-
-	
-	public final static double[][] toDouble(float[][] a) {
-		double[][] ret = new double[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.util.UtilBase.toDouble(a[i][j]);
-		return ret;
-	}
-
-	public final static double[] toDouble(float[] a) {
-		double[] ret = new double[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.util.UtilBase.toDouble(a[i]);
-		return ret;
-	}
-
-	public final static double toDouble(float a) {
-		return aliceinnets.util.UtilBase.toDouble(a);
-	}
-
-	
-	public final static float[][] toFloat(short[][] a) {
-		float[][] ret = new float[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
-		return ret;
-	}
-
-	public final static float[] toFloat(short[] a) {
-		float[] ret = new float[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
-		return ret;
-	}
-
-	public final static float toFloat(short a) {
-		return aliceinnets.util.UtilBase.toFloat(a);
-	}
-
-	
-	public final static float[][] toFloat(int[][] a) {
-		float[][] ret = new float[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
-		return ret;
-	}
-
-	public final static float[] toFloat(int[] a) {
-		float[] ret = new float[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
-		return ret;
-	}
-
-	public final static float toFloat(int a) {
-		return aliceinnets.util.UtilBase.toFloat(a);
-	}
-
-	
-	public final static float[][] toFloat(byte[][] a) {
-		float[][] ret = new float[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
-		return ret;
-	}
-
-	public final static float[] toFloat(byte[] a) {
-		float[] ret = new float[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
-		return ret;
-	}
-
-	public final static float toFloat(byte a) {
-		return aliceinnets.util.UtilBase.toFloat(a);
-	}
-
-	
-	public final static float[][] toFloat(long[][] a) {
-		float[][] ret = new float[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
-		return ret;
-	}
-
-	public final static float[] toFloat(long[] a) {
-		float[] ret = new float[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
-		return ret;
-	}
-
-	public final static float toFloat(long a) {
-		return aliceinnets.util.UtilBase.toFloat(a);
-	}
-
-	
-	public final static float[][] toFloat(double[][] a) {
-		float[][] ret = new float[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.util.UtilBase.toFloat(a[i][j]);
-		return ret;
-	}
-
-	public final static float[] toFloat(double[] a) {
-		float[] ret = new float[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.util.UtilBase.toFloat(a[i]);
-		return ret;
-	}
-
-	public final static float toFloat(double a) {
-		return aliceinnets.util.UtilBase.toFloat(a);
 	}
 
 	

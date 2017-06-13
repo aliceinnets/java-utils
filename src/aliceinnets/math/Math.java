@@ -1,4 +1,4 @@
-/* Automatically generated java class, generated at 38199651635118 */
+/* Automatically generated java class, generated at Tue Jun 13 20:50:41 BST 2017 */
 package aliceinnets.math;
 
 
@@ -2684,203 +2684,53 @@ public class Math {
 	}
 
 	
-	public final static float[][] mul(float[][] a, float[][] b) {
-		float[][] ret = new float[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
-		return ret;
-	}
-
-	public final static float[] mul(float[] a, float[] b) {
-		float[] ret = new float[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
-		return ret;
-	}
-
-	public final static float[][] mul(float[][] a, float b) {
-		float[][] ret = new float[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
-		return ret;
-	}
-
-	public final static float[][] mul(float a, float[][] b) {
-		float[][] ret = new float[b.length][b[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
-		return ret;
-	}
-
-	public final static float[] mul(float[] a, float b) {
-		float[] ret = new float[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
-		return ret;
-	}
-
-	public final static float[] mul(float a, float[] b) {
-		float[] ret = new float[b.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
-		return ret;
-	}
-
-	public final static float mul(float a, float b) {
-		return aliceinnets.math.ScalarMath.mul(a, b);
-	}
-
-	
-	public final static double[][] mul(double[][] a, double[][] b) {
-		double[][] ret = new double[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
-		return ret;
-	}
-
-	public final static double[] mul(double[] a, double[] b) {
-		double[] ret = new double[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
-		return ret;
-	}
-
-	public final static double[][] mul(double[][] a, double b) {
-		double[][] ret = new double[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
-		return ret;
-	}
-
-	public final static double[][] mul(double a, double[][] b) {
-		double[][] ret = new double[b.length][b[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
-		return ret;
-	}
-
-	public final static double[] mul(double[] a, double b) {
-		double[] ret = new double[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
-		return ret;
-	}
-
-	public final static double[] mul(double a, double[] b) {
-		double[] ret = new double[b.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
-		return ret;
-	}
-
-	public final static double mul(double a, double b) {
-		return aliceinnets.math.ScalarMath.mul(a, b);
-	}
-
-	
-	public final static int[][] mul(int[][] a, int[][] b) {
+	public final static int[][] subtract(int[][] a, int[][] b) {
 		int[][] ret = new int[a.length][a[0].length];
 		for(int i=0;i<ret.length;++i)
 			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
+				ret[i][j] = aliceinnets.math.ScalarMath.subtract(a[i][j], b[i][j]);
 		return ret;
 	}
 
-	public final static int[] mul(int[] a, int[] b) {
+	public final static int[] subtract(int[] a, int[] b) {
 		int[] ret = new int[a.length];
 		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
+			ret[i] = aliceinnets.math.ScalarMath.subtract(a[i], b[i]);
 		return ret;
 	}
 
-	public final static int[][] mul(int[][] a, int b) {
+	public final static int[][] subtract(int[][] a, int b) {
 		int[][] ret = new int[a.length][a[0].length];
 		for(int i=0;i<ret.length;++i)
 			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
+				ret[i][j] = aliceinnets.math.ScalarMath.subtract(a[i][j], b);
 		return ret;
 	}
 
-	public final static int[][] mul(int a, int[][] b) {
+	public final static int[][] subtract(int a, int[][] b) {
 		int[][] ret = new int[b.length][b[0].length];
 		for(int i=0;i<ret.length;++i)
 			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
+				ret[i][j] = aliceinnets.math.ScalarMath.subtract(a, b[i][j]);
 		return ret;
 	}
 
-	public final static int[] mul(int[] a, int b) {
+	public final static int[] subtract(int[] a, int b) {
 		int[] ret = new int[a.length];
 		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
+			ret[i] = aliceinnets.math.ScalarMath.subtract(a[i], b);
 		return ret;
 	}
 
-	public final static int[] mul(int a, int[] b) {
+	public final static int[] subtract(int a, int[] b) {
 		int[] ret = new int[b.length];
 		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
+			ret[i] = aliceinnets.math.ScalarMath.subtract(a, b[i]);
 		return ret;
 	}
 
-	public final static int mul(int a, int b) {
-		return aliceinnets.math.ScalarMath.mul(a, b);
-	}
-
-	
-	public final static long[][] mul(long[][] a, long[][] b) {
-		long[][] ret = new long[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
-		return ret;
-	}
-
-	public final static long[] mul(long[] a, long[] b) {
-		long[] ret = new long[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
-		return ret;
-	}
-
-	public final static long[][] mul(long[][] a, long b) {
-		long[][] ret = new long[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
-		return ret;
-	}
-
-	public final static long[][] mul(long a, long[][] b) {
-		long[][] ret = new long[b.length][b[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
-		return ret;
-	}
-
-	public final static long[] mul(long[] a, long b) {
-		long[] ret = new long[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
-		return ret;
-	}
-
-	public final static long[] mul(long a, long[] b) {
-		long[] ret = new long[b.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
-		return ret;
-	}
-
-	public final static long mul(long a, long b) {
-		return aliceinnets.math.ScalarMath.mul(a, b);
+	public final static int subtract(int a, int b) {
+		return aliceinnets.math.ScalarMath.subtract(a, b);
 	}
 
 	
@@ -2984,56 +2834,6 @@ public class Math {
 	}
 
 	
-	public final static int[][] subtract(int[][] a, int[][] b) {
-		int[][] ret = new int[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.subtract(a[i][j], b[i][j]);
-		return ret;
-	}
-
-	public final static int[] subtract(int[] a, int[] b) {
-		int[] ret = new int[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.subtract(a[i], b[i]);
-		return ret;
-	}
-
-	public final static int[][] subtract(int[][] a, int b) {
-		int[][] ret = new int[a.length][a[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.subtract(a[i][j], b);
-		return ret;
-	}
-
-	public final static int[][] subtract(int a, int[][] b) {
-		int[][] ret = new int[b.length][b[0].length];
-		for(int i=0;i<ret.length;++i)
-			for(int j=0;j<ret[0].length;++j)
-				ret[i][j] = aliceinnets.math.ScalarMath.subtract(a, b[i][j]);
-		return ret;
-	}
-
-	public final static int[] subtract(int[] a, int b) {
-		int[] ret = new int[a.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.subtract(a[i], b);
-		return ret;
-	}
-
-	public final static int[] subtract(int a, int[] b) {
-		int[] ret = new int[b.length];
-		for(int i=0;i<ret.length;++i)
-			ret[i] = aliceinnets.math.ScalarMath.subtract(a, b[i]);
-		return ret;
-	}
-
-	public final static int subtract(int a, int b) {
-		return aliceinnets.math.ScalarMath.subtract(a, b);
-	}
-
-	
 	public final static long[][] subtract(long[][] a, long[][] b) {
 		long[][] ret = new long[a.length][a[0].length];
 		for(int i=0;i<ret.length;++i)
@@ -3081,6 +2881,206 @@ public class Math {
 
 	public final static long subtract(long a, long b) {
 		return aliceinnets.math.ScalarMath.subtract(a, b);
+	}
+
+	
+	public final static int[][] mul(int[][] a, int[][] b) {
+		int[][] ret = new int[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
+		return ret;
+	}
+
+	public final static int[] mul(int[] a, int[] b) {
+		int[] ret = new int[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
+		return ret;
+	}
+
+	public final static int[][] mul(int[][] a, int b) {
+		int[][] ret = new int[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
+		return ret;
+	}
+
+	public final static int[][] mul(int a, int[][] b) {
+		int[][] ret = new int[b.length][b[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
+		return ret;
+	}
+
+	public final static int[] mul(int[] a, int b) {
+		int[] ret = new int[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
+		return ret;
+	}
+
+	public final static int[] mul(int a, int[] b) {
+		int[] ret = new int[b.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
+		return ret;
+	}
+
+	public final static int mul(int a, int b) {
+		return aliceinnets.math.ScalarMath.mul(a, b);
+	}
+
+	
+	public final static float[][] mul(float[][] a, float[][] b) {
+		float[][] ret = new float[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
+		return ret;
+	}
+
+	public final static float[] mul(float[] a, float[] b) {
+		float[] ret = new float[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
+		return ret;
+	}
+
+	public final static float[][] mul(float[][] a, float b) {
+		float[][] ret = new float[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
+		return ret;
+	}
+
+	public final static float[][] mul(float a, float[][] b) {
+		float[][] ret = new float[b.length][b[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
+		return ret;
+	}
+
+	public final static float[] mul(float[] a, float b) {
+		float[] ret = new float[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
+		return ret;
+	}
+
+	public final static float[] mul(float a, float[] b) {
+		float[] ret = new float[b.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
+		return ret;
+	}
+
+	public final static float mul(float a, float b) {
+		return aliceinnets.math.ScalarMath.mul(a, b);
+	}
+
+	
+	public final static long[][] mul(long[][] a, long[][] b) {
+		long[][] ret = new long[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
+		return ret;
+	}
+
+	public final static long[] mul(long[] a, long[] b) {
+		long[] ret = new long[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
+		return ret;
+	}
+
+	public final static long[][] mul(long[][] a, long b) {
+		long[][] ret = new long[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
+		return ret;
+	}
+
+	public final static long[][] mul(long a, long[][] b) {
+		long[][] ret = new long[b.length][b[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
+		return ret;
+	}
+
+	public final static long[] mul(long[] a, long b) {
+		long[] ret = new long[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
+		return ret;
+	}
+
+	public final static long[] mul(long a, long[] b) {
+		long[] ret = new long[b.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
+		return ret;
+	}
+
+	public final static long mul(long a, long b) {
+		return aliceinnets.math.ScalarMath.mul(a, b);
+	}
+
+	
+	public final static double[][] mul(double[][] a, double[][] b) {
+		double[][] ret = new double[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b[i][j]);
+		return ret;
+	}
+
+	public final static double[] mul(double[] a, double[] b) {
+		double[] ret = new double[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b[i]);
+		return ret;
+	}
+
+	public final static double[][] mul(double[][] a, double b) {
+		double[][] ret = new double[a.length][a[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a[i][j], b);
+		return ret;
+	}
+
+	public final static double[][] mul(double a, double[][] b) {
+		double[][] ret = new double[b.length][b[0].length];
+		for(int i=0;i<ret.length;++i)
+			for(int j=0;j<ret[0].length;++j)
+				ret[i][j] = aliceinnets.math.ScalarMath.mul(a, b[i][j]);
+		return ret;
+	}
+
+	public final static double[] mul(double[] a, double b) {
+		double[] ret = new double[a.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a[i], b);
+		return ret;
+	}
+
+	public final static double[] mul(double a, double[] b) {
+		double[] ret = new double[b.length];
+		for(int i=0;i<ret.length;++i)
+			ret[i] = aliceinnets.math.ScalarMath.mul(a, b[i]);
+		return ret;
+	}
+
+	public final static double mul(double a, double b) {
+		return aliceinnets.math.ScalarMath.mul(a, b);
 	}
 
 	

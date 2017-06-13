@@ -12,11 +12,34 @@ import java.io.Reader;
 import java.io.Writer;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class OneLiners {
+	
+	public final static String getFileName(String pathname) {
+		int index = pathname.lastIndexOf(File.separator);
+		return pathname.substring(index+1);
+	}
+	
+	
+	public final static String getPath(String pathname) {
+		int index = pathname.lastIndexOf(File.separator);
+		return pathname.substring(0, index+1);
+	}
+	
+	
+	public final static String date() {
+		return new Date(System.currentTimeMillis()).toString();
+	}
+	
+	
+	public final static String date(long currentTimeMillis) {
+		return new Date(currentTimeMillis).toString();
+	}
+	
 	
 	public final static String[] exec(String command) {
 		try {

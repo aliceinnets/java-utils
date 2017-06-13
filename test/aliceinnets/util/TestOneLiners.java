@@ -10,8 +10,12 @@ public class TestOneLiners extends TestCase {
 	public void testDir() {
 		String folder = System.getProperty("user.home")+File.separator+"ABCDEFolder"+File.separator;
 		String subfolder = folder+"subfolder"+File.separator;
-		String pathname = subfolder+"hello.txt";
+		String filename = "hello.txt";
+		String pathname = subfolder+filename;
 		String contents = "hello, world";
+		
+		TestCase.assertEquals(OneLiners.getPath(pathname), subfolder);
+		TestCase.assertEquals(OneLiners.getFileName(pathname), filename);
 		
 		OneLiners.mkdirs(subfolder);
 		if(!new File(subfolder).exists()) TestCase.fail();
@@ -26,8 +30,8 @@ public class TestOneLiners extends TestCase {
 	}
 	
 	public void testExec() {
-		System.out.println(System.getenv());
-		System.out.println(OneLiners.exec("cmd.exe /c dir")[0]);
+//		System.out.println(System.getenv());
+//		System.out.println(OneLiners.exec("cmd.exe /c dir")[0]);
 //		System.out.println(OneLiners.exec("which python")[0]);
 //		System.out.println(SystemProperty.OsName.MacOS);
 	}

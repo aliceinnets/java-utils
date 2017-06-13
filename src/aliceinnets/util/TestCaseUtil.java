@@ -38,8 +38,8 @@ public class TestCaseUtil {
 		}
 	}
 	
-	public static void assertArrayElements(Object object, Predicate<Object> assertFunction) {
-		assertArrayElements(null, object, assertFunction, true);
+	public static void assertArrayElements(Object object, Predicate<Object> assertFunction, boolean answer) {
+		assertArrayElements(null, object, assertFunction, answer);
 	}
 	
 	public static void asserts(Object object, Predicate<Object> assertFunction) {
@@ -79,8 +79,8 @@ public class TestCaseUtil {
 		}
 	}
 	
-	public static void assertArrayElements(Object expected, Object actual, BiPredicate<Object, Object> assertFunction) {
-		assertArrayElements(null, expected, actual, assertFunction, true);
+	public static void assertArrayElements(Object expected, Object actual, BiPredicate<Object, Object> assertFunction, boolean answer) {
+		assertArrayElements(null, expected, actual, assertFunction, answer);
 	}
 	
 	public static void asserts(Object expected, Object actual, BiPredicate<Object, Object> assertFunction) {

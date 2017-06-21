@@ -19,6 +19,14 @@ import java.util.Scanner;
 
 public class OneLiners {
 	
+	public final static String userDir() {
+		return System.getProperty("user.dir");
+	}
+	
+	public final static void printUserDir() {
+		System.out.println(System.getProperty("user.dir"));
+	}
+	
 	public final static String getFileName(String pathname) {
 		int index = pathname.lastIndexOf(File.separator);
 		return pathname.substring(index+1);

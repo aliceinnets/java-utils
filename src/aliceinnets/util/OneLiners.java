@@ -52,7 +52,6 @@ public class OneLiners {
 	public final static String[] exec(String command) {
 		try {
 			Process process = Runtime.getRuntime().exec(command);
-			process.waitFor();
 			String input = "";
 			String buffer = null;
 			BufferedReader inputStreamReader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -70,7 +69,7 @@ public class OneLiners {
 			
 			process.destroy();
 			return new String[] { input, error };
-		} catch (IOException | InterruptedException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 			return null;
 		}

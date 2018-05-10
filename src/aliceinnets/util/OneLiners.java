@@ -58,18 +58,16 @@ public class OneLiners {
 			while ((buffer = inputStreamReader.readLine()) != null) {
 				input += buffer+"\n";
 			}
-			inputStreamReader.close(); 
 			
 			String error = "";
 			BufferedReader errorStreamReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 			while ((buffer = errorStreamReader.readLine()) != null) {
 				error += buffer+"\n";
 			}
-			errorStreamReader.close();
 			
-			process.destroy();
+			process.waitFor();
 			return new String[] { input, error };
-		} catch (IOException e) {
+		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
 			return null;
 		}

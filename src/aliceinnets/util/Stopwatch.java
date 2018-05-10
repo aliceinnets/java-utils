@@ -40,7 +40,7 @@ public class Stopwatch {
 		return nanoTimes.get(nanoTimes.size()-1)-nanoTimes.get(nanoTimes.size()-2);
 	}
 	
-	public long tocMirco() {
+	public long tocMicro() {
 		return tocNano()/1000;
 	}
 	
@@ -63,7 +63,7 @@ public class Stopwatch {
 		return toc;
 	}
 	
-	public long tocMirco(String print) {
+	public long tocMicro(String print) {
 		long toc = tocNano()/1000;
 		System.out.println(String.format("%s time: %s [us]", print, toc));
 		return toc;
